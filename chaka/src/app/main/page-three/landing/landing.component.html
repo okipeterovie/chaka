@@ -1,0 +1,48 @@
+<div class="main-content">
+  <div class="content-wrapper">
+    <div class="container">
+      <app-progress-spinner [isLoading]="isLoading"></app-progress-spinner>
+      <div class="col-md-12 card" *ngIf="!isLoading">
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <h2>News</h2>
+          </div>
+
+          <div class="col-md-6">
+            <p class="text-right">
+              <button type="button" class="btn btn-secondary" (click)="redirect('/landing')">
+                <i class=" fa fa-arrow-left"></i>&nbsp;Go Back
+              </button>
+            </p>
+          </div>
+        </div>
+        <div *ngFor="let row of newsArray | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; let i=index">
+          <div class="row" (click)="readNews(row.url)" style="cursor: pointer;">
+            <div class="col-md-4">
+              <img src="{{row.image}}" alt="blog-image" class="img-thumbnail">
+            </div>
+            <div class="col-md-8">
+              <p><small><b>{{convertUnixTimeStampToDate(row.datetime)}} | {{row.category}}</b></small></p>
+              <div>
+                <h5 class="h5"><strong>{{row.headline}}</strong></h5>
+              </div>
+              <p class="lead">
+                {{row.summary}}
+              </p>
+              <p><small>related: {{row.related || 'N/A'}}</small></p>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      <br>
+      <div class="table-responsive">
+        <ngb-pagination class="d-flex flex-wrap justify-content-center" [(page)]="page" [pageSize]="pageSize"
+          [collectionSize]="newsArray.length" [rotate]="true" [boundaryLinks]="true">
+        </ngb-pagination>
+      </div>
+
+    </div>
+  </div>
+</div>

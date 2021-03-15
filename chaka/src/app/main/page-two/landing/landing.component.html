@@ -1,0 +1,242 @@
+<div class="main-content">
+  <div class="content-wrapper">
+    <div class="container">
+      <div class="col-md-12 card">
+        <app-progress-spinner [isLoading]="isLoading"></app-progress-spinner>
+        <br>
+        <div *ngIf="!isLoading">
+          <div class="row">
+            <div class="col-md-6">
+              <h2>Page Two</h2>
+            </div>
+
+            <div class="col-md-6">
+              <p class="text-right">
+                <button type="button" class="btn btn-secondary" (click)="redirect('/landing')">
+                  <i class=" fa fa-arrow-left"></i>&nbsp;Go Back
+                </button>
+              </p>
+            </div>
+          </div>
+          <h5 class="h5">
+            {{profileArray.name}}
+          </h5>
+          <div>
+            {{'...'}}
+          </div>
+          <div><small>{{'...'}}</small></div>
+        </div>
+
+        <div [hidden]="isLoading">
+          <canvas id="lineChart" height="10" width="100"></canvas>
+          <hr>
+          <canvas id="barChart" height="10" width="100"></canvas>
+        </div>
+
+        <br>
+        <div class="row rounded" style="background-color:gainsboro;" *ngIf="!isLoading">
+          <div class="col-md-6">
+            <div class="d-flex flex-row bd-highlight mb-3">
+              <div class="p-2 bd-highlight">1D</div>
+              <div class="p-2 bd-highlight">1M</div>
+              <div class="p-2 bd-highlight">6M</div>
+              <div class="p-2 bd-highlight">YTD</div>
+              <div class="p-2 bd-highlight">1Y</div>
+              <div class="p-2 bd-highlight">2Y</div>
+              <div class="p-2 bd-highlight">5Y</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <p class="text-right">
+              <input type="checkbox" name="" id=""> Peers
+              CSV
+            </p>
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="row" *ngIf="!isLoading">
+          <div class="col-md-6">
+            <div>
+              <div>
+                <h3 class="h3">
+                  Profile
+                </h3>
+              </div>
+              <p class="small">{{'...'}}</p>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-6">
+                <div>
+                  <p class="small">
+                    <b>EXCHANGE</b>
+                  </p>
+                  <p class="small">{{profileArray.exchange}}</p>
+                </div>
+                <div>
+                  <p class="small">
+                    <b>
+                      FLOAT
+                    </b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+                <div>
+                  <p class="small">
+                    <b>SECTOR</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+                <div>
+                  <p class="small">
+                    <b>WEBSITE</b>
+                  </p>
+                  <p class="small">{{profileArray.weburl}}</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div>
+                  <p class="small">
+                    <b>NUMBER OF EMPLOYEES</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+                <div>
+                  <p class="small">
+                    <b>SHARES OF OUTSTANDING</b>
+                  </p>
+                  <p class="small">{{profileArray.shareOutstanding}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>INDUSTRY</b>
+                  </p>
+                  <p class="small">{{profileArray.finnhubIndustry}}</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="small">
+                <b>TAGS</b>
+              </p>
+              <p class="small">{{'...'}}</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <hr>
+            <div class="row">
+              <div class="col-md-4">
+                <div>
+                  <p class="small">
+                    <b>VOLUME</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+                <div>
+                  <p class="small">
+                    <b>52 WEEK RANGE</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>BETA</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>DIVIDEND & YIELD</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>IEX VOLUME</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div>
+                  <p class="small">
+                    <b>AVG DAILY VOLUME</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>MARKET CAP</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>LATEST QUARTERLY EPS</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>EX-DIVIDEND DATE</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>IEX MKT SHARE</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+              </div>
+
+              <div class="col-md-4">
+                <div>
+                  <p class="small">
+                    <b>OPEN</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>PREVIOUS CLOSE</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>LATEST EPS QUARTER</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+                <div>
+                  <p class="small">
+                    <b>P/E RATIO</b>
+                  </p>
+                  <p class="small">{{'...'}}</p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
